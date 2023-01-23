@@ -1,5 +1,5 @@
-import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { getUsers } from "../../services/userServices";
 import ModuleCss from "./Card.module.css";
 
 const Card = () => {
@@ -7,21 +7,19 @@ const Card = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const getUsers = async () => {
-    try {
-      const res = await axios.get("https://jsonplaceholder.typicode.com/users");
-      setUsers(res?.data);
-      setError(null);
-    } catch (error) {
-      setError(error.message);
-      setUsers(null);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
-    getUsers();
+    getUsers()
+      .then((res) => {
+        setUsers(res.data);
+        setError(null);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setUsers(null);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
   return (
