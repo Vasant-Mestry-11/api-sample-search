@@ -3,4 +3,5 @@
 [View Demo](https://api-search-content.netlify.app/)
 
 # Screenshots
-![image](./public/Users.png)
+
+![image](./public/Users.gif)
