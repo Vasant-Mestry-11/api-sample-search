@@ -31,14 +31,14 @@ const Card = () => {
       {users &&
         users?.map(({ id, name, username, email, phone, company, website }) => {
           return (
-            <div className={ModuleCss.cardContainer}>
+            <div className={ModuleCss.cardContainer} key={id}>
               <p className={ModuleCss.name}>{name}</p>
               <p className={ModuleCss.username}>@ {username}</p>
               <p className={ModuleCss.email}>
-                <i class="bx bxs-envelope"></i> {email}
+                <i className="bx bxs-envelope"></i> {email}
               </p>
               <p className={ModuleCss.phone}>
-                <i class="bx bxs-phone"></i> {phone}
+                <i className="bx bxs-phone"></i> {phone}
               </p>
               <a
                 target="_blank"
@@ -46,7 +46,7 @@ const Card = () => {
                 href={`http://${website}`}
                 rel="noreferrer"
               >
-                <i class="bx bx-globe"></i> {website}
+                <i className="bx bx-globe"></i> {website}
               </a>
             </div>
           );
