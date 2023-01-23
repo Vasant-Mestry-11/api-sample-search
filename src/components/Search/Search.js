@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import ModuleCss from "./Search.module.css";
 
-const Search = () => {
-  const [value, setValue] = useState("");
-
-  const handleChange = (e) => {
-    setValue(e.target.value);
-  };
+const Search = ({value, handleChange}) => {
+ 
   return (
     <span className={ModuleCss.searchContainer}>
       <input

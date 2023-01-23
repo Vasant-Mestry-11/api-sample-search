@@ -1,35 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { getUsers } from "../../services/userServices";
 import ModuleCss from "./Card.module.css";
 
-const Card = () => {
-  const [users, setUsers] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    getUsers()
-      .then((res) => {
-        setUsers(res.data);
-        setError(null);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setUsers(null);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, []);
-
+const Card = ({ loading, data, error }) => {
   return (
     <div className={ModuleCss.cards}>
-      {loading && <>Loading...</>}
+      {loading && (
+        <div className={ModuleCss.loading}>
+          <h1>Loading...</h1>
+        </div>
+      )}
       {error && (
         <div>{`There is a problem fetching the post data - ${error}`}</div>
       )}
-      {users &&
-        users?.map(({ id, name, username, email, phone, company, website }) => {
+      {data &&
+        data.map(({ id, name, username, email, phone, website }) => {
           return (
             <div className={ModuleCss.cardContainer} key={id}>
               <p className={ModuleCss.name}>{name}</p>
