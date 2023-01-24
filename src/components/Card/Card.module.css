@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  gap: 1rem;
 }
 
 .cardContainer {
@@ -13,7 +14,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 1rem;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
   transition: transform ease 0.5s, box-shadow ease 0.5s;
 }

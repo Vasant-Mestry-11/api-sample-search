@@ -1,23 +1,23 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import ModuleCss from "./App.module.css";
 import Card from "./components/Card/Card";
 import Search from "./components/Search/Search";
 import { getUsers } from "./services/userServices";
 
-const KEY = "username";
-
 function App() {
-  const [users, setUsers] = useState(null);
+  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const [value, setValue] = useState("");
   const [filteredArray, setFilteredArray] = useState([]);
 
+  const [key, setKey] = useState("");
+
   const handleChange = (e) => {
     setValue(e.target.value);
     const newArray = users.filter((ele) =>
-      ele[KEY].toLowerCase().includes(e.target.value)
+      String(ele[key]).toLowerCase().includes(e.target.value)
     );
     setFilteredArray(newArray);
   };
@@ -38,9 +38,33 @@ function App() {
       });
   }, []);
 
+  const generateOptions = () => Object.keys(users[0]);
+
+  const isDisabled = () => {
+    return !key ? true : key === "Select" ? true : false;
+  };
+
   return (
     <div className="App">
-      <Search value={value} handleChange={handleChange} />
+      {users && (
+        <select
+          className={ModuleCss.select}
+          value={key}
+          onChange={(e) => setKey(e.target.value)}
+        >
+          <option className={ModuleCss.option}>Select</option>
+          {generateOptions().map((option) => (
+            <option key={option} className={ModuleCss.option}>
+              {option}
+            </option>
+          ))}
+        </select>
+      )}
+      <Search
+        value={value}
+        handleChange={handleChange}
+        disabled={isDisabled()}
+      />
       <Card
         data={value ? filteredArray : users}
         loading={loading}

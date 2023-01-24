@@ -5,8 +5,8 @@
   --secondary: #323232; */
   /* --primary: #0c1a1a;
   --secondary: #6acfc7; */
-  --primary: #1E212D;
-  --secondary: #EABF9F;
+  --primary: #1e212d;
+  --secondary: #eabf9f;
   /* --tertiary: #f7f7f7; */
 }
 
@@ -42,5 +42,22 @@ a {
 
 body {
   background-color: var(--primary);
-  padding: 1rem;
+  padding: 1.5rem;
+}
+
+.select {
+  background-color: transparent;
+  border: 1px solid var(--secondary);
+  padding: 0.75rem;
+  margin: 0 1rem;
+  outline: none;
+  text-transform: capitalize;
+  appearance: none;
+}
+
+.select * {
+  text-transform: capitalize;
+  background-color: var(--primary);
+  font-size: 1rem;
+  width: 20rem;
 }

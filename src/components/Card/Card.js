@@ -15,7 +15,7 @@ const Card = ({ loading, data, error }) => {
         data.map(({ id, name, username, email, phone, website }) => {
           return (
             <div className={ModuleCss.cardContainer} key={id}>
-              <p className={ModuleCss.name}>{name}</p>
+              <p className={ModuleCss.name}>{`${id}. ${name}`}</p>
               <p className={ModuleCss.username}>@ {username}</p>
               <p className={ModuleCss.email}>
                 <i className="bx bxs-envelope"></i> {email}
