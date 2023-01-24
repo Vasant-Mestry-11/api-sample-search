@@ -46,7 +46,7 @@ function App() {
 
   return (
     <div className="App">
-      {users && (
+      {users.length && (
         <select
           className={ModuleCss.select}
           value={key}

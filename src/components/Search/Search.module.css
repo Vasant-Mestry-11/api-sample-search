@@ -20,3 +20,7 @@
   width: 25rem;
   background-color: transparent;
 }
+
+.input:disabled {
+  cursor: no-drop;
+}
