@@ -12,7 +12,7 @@ const Card = ({ loading, data, error }) => {
         <div>{`There is a problem fetching the post data - ${error}`}</div>
       )}
       {data &&
-        data.map(({ id, name, username, email, phone, website, company }) => {
+        data.map(({ id, name, username, email, phone, website, company, address }) => {
           return (
             <div className={ModuleCss.cardContainer} key={id}>
               <p className={ModuleCss.name}>{`${id}. ${name}`}</p>
@@ -34,6 +34,9 @@ const Card = ({ loading, data, error }) => {
               >
                 <i className="bx bx-globe"></i> {website}
               </a>
+              <p className={ModuleCss.city}>
+                <i className="bx bxs-map"></i> {address.city}
+              </p>
             </div>
           );
         })}

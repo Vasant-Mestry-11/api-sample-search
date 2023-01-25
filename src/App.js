@@ -16,9 +16,13 @@ function App() {
 
   const handleChange = (e) => {
     setValue(e.target.value);
-    const newArray = users.filter((ele) =>
-      String(ele[key]).toLowerCase().includes(e.target.value)
-    );
+    const newArray = users.filter((ele) => {
+      if (key === "company")
+        return String(ele[key].name).toLowerCase().includes(e.target.value);
+      if (key === "address")
+        return String(ele[key].city).toLowerCase().includes(e.target.value);
+      return String(ele[key]).toLowerCase().includes(e.target.value);
+    });
     setFilteredArray(newArray);
   };
 

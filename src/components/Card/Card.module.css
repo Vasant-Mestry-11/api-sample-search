@@ -48,7 +48,8 @@
 
 .email,
 .phone,
-.website {
+.website,
+.city {
   font-weight: 200;
   font-size: 0.813rem;
 }
