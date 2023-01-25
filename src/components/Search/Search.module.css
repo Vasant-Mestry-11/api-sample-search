@@ -1,26 +1,24 @@
-.input {
-  outline: none;
-  border: none;
-  width: 25rem;
-  background-color: transparent;
-}
-
 .searchContainer {
   padding: 0.75rem;
   background-color: transparent;
   display: inline-flex;
   border: 1px solid var(--secondary);
-  margin: 0 0 0.5rem 1rem;
-  width: 25rem; /* Input width is same as card */
+  width: 20rem; /* Input width is same as card */
 }
 
 .input {
   outline: none;
   border: none;
-  width: 25rem;
+  width: 100%;
   background-color: transparent;
 }
 
 .input:disabled {
   cursor: no-drop;
+}
+
+@media screen and (max-width: 430px) {
+  .searchContainer {
+    margin-left: 1rem;
+  }
 }

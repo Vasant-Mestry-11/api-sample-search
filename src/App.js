@@ -18,10 +18,16 @@ function App() {
     setValue(e.target.value);
     const newArray = users.filter((ele) => {
       if (key === "company")
-        return String(ele[key].name).toLowerCase().includes(e.target.value.toLowerCase());
+        return String(ele[key].name)
+          .toLowerCase()
+          .includes(e.target.value.toLowerCase());
       if (key === "address")
-        return String(ele[key].city).toLowerCase().includes(e.target.value.toLowerCase());
-      return String(ele[key]).toLowerCase().includes(e.target.value.toLowerCase());
+        return String(ele[key].city)
+          .toLowerCase()
+          .includes(e.target.value.toLowerCase());
+      return String(ele[key])
+        .toLowerCase()
+        .includes(e.target.value.toLowerCase());
     });
     setFilteredArray(newArray);
   };
@@ -50,24 +56,26 @@ function App() {
 
   return (
     <div className="App">
-      <select
-        className={ModuleCss.select}
-        value={key}
-        onChange={(e) => setKey(e.target.value)}
-      >
-        <option className={ModuleCss.option}>Select</option>
-        {users.length &&
-          generateOptions().map((option) => (
-            <option key={option} className={ModuleCss.option}>
-              {option}
-            </option>
-          ))}
-      </select>
-      <Search
-        value={value}
-        handleChange={handleChange}
-        disabled={isDisabled()}
-      />
+      <div className={ModuleCss.navContainer}>
+        <select
+          className={ModuleCss.select}
+          value={key}
+          onChange={(e) => setKey(e.target.value)}
+        >
+          <option className={ModuleCss.option}>Select</option>
+          {users.length &&
+            generateOptions().map((option) => (
+              <option key={option} className={ModuleCss.option}>
+                {option}
+              </option>
+            ))}
+        </select>
+        <Search
+          value={value}
+          handleChange={handleChange}
+          disabled={isDisabled()}
+        />
+      </div>
       <Card
         data={value ? filteredArray : users}
         loading={loading}

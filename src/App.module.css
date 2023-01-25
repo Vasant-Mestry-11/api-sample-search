@@ -45,11 +45,17 @@ body {
   padding: 1.5rem;
 }
 
+.navContainer {
+  display: flex;
+  column-gap: 2rem;
+  margin-bottom: 1rem;
+}
+
 .select {
   background-color: transparent;
   border: 1px solid var(--secondary);
   padding: 0.75rem;
-  margin: 0 1rem;
+  margin-left: 1rem;
   outline: none;
   text-transform: capitalize;
   appearance: none;
@@ -60,4 +66,15 @@ body {
   background-color: var(--primary);
   font-size: 1rem;
   width: 20rem;
+}
+
+@media screen and (max-width: 430px) {
+  .select {
+    width: 20rem;
+  }
+
+  .navContainer {
+    flex-direction: column;
+    row-gap: 1rem;
+  }
 }

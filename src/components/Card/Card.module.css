@@ -10,7 +10,7 @@
   background-color: var(--primary);
   border: 2px solid var(--secondary);
   margin: 1rem;
-  width: 25rem;
+  width: 20rem;
   min-height: 10rem;
   display: flex;
   flex-direction: column;
