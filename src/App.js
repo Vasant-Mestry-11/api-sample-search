@@ -46,20 +46,19 @@ function App() {
 
   return (
     <div className="App">
-      {users.length && (
-        <select
-          className={ModuleCss.select}
-          value={key}
-          onChange={(e) => setKey(e.target.value)}
-        >
-          <option className={ModuleCss.option}>Select</option>
-          {generateOptions().map((option) => (
+      <select
+        className={ModuleCss.select}
+        value={key}
+        onChange={(e) => setKey(e.target.value)}
+      >
+        <option className={ModuleCss.option}>Select</option>
+        {users.length &&
+          generateOptions().map((option) => (
             <option key={option} className={ModuleCss.option}>
               {option}
             </option>
           ))}
-        </select>
-      )}
+      </select>
       <Search
         value={value}
         handleChange={handleChange}
